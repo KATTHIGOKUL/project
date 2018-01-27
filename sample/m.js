@@ -1,4 +1,3 @@
-<script>
 var app = angular.module("myapp", []);
 	app.controller("ListController", ['$scope', function($scope) {
 	
@@ -6,25 +5,25 @@ var app = angular.module("myapp", []);
 	        {
 	            'fname':'Muhammed',
 	            'lname':'Shanid',
-	            'email':'shanid@yahoo.com'
-				'phone':'1234567894'
-				'city' :'hyderabad'
-				'state':'ap'
+	            'email':"shanid@yahoo.com",
+				'phone':"1234567894",
+				'city' :'hyderabad',
+				'state':"ap"
 	        },
 	        {
 	            'fname':'John',
 	            'lname':'Abraham',
-	            'email':'john@gmail.com'
-				'phone':'9876543210'
-				'city' :'secunderabad'
+	            'email':'john@gmail.com',
+				'phone':'9876543210',
+				'city' :'secunderabad',
 				'state':'ap'
 	        },
 	        {
 	            'fname':'Roy',
 	            'lname':'Mathew',
-	            'email':'roy@ymail.com'
-				'phone':'7412589631'
-				'city' :'miyapur'
+	            'email':'roy@ymail.com',
+				'phone':'7412589631',
+				'city' :'miyapur',
 				'state':'ap'
 	        }];
 	    
@@ -62,6 +61,4 @@ var app = angular.module("myapp", []);
 	            });
 	        };    
 	}]);
-	
-	</script>
 	

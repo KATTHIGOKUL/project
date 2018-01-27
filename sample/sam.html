@@ -1,7 +1,7 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<script src="C:\Users\SANKAR\Desktop\angular\m.js"></script>
+<script src="m.js"></script>
  
  
 <script>
@@ -10,7 +10,7 @@ app.controller('myCtrl', function($scope) {
     $scope.names = ["AP","KL","KA","MH","UP","GJ","DL","TN","RJ","WB"];
 });
 </script>
-<body>
+<body ng-app="myApp">
 
 <table>
 <tr>
@@ -35,8 +35,7 @@ app.controller('myCtrl', function($scope) {
 <p>Email id:     <input type="text" ng-model="email id"></p>
 <p>Enter City:      <input type="text" ng-model="city"></p>
 
-<div ng-app="myApp" ng-controller="myCtrl">
-
+<div ng-controller="myCtrl">
 <p>Select state<select ng-model="selectedName" ng-options="x for x in names">
 </select>
 </p>

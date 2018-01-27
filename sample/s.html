@@ -3,19 +3,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
 	<script>
       
-        function initiateLocalStorage() {  
               var app = angular.module('Employees', ['storageService']);  
-     app.controller('EmployeesController', ['$scope', 'getLocalStorage', function ($scope, getLocalStorage) {  
+                app.controller('EmployeesController', ['$scope', 'getLocalStorage', function ($scope, getLocalStorage) {  
                               $scope.employees = getLocalStorage.getEmployees();  
   
                 $scope.addEmployee = function () {  
                     $scope.employees.push({ 'Firstname': $scope.firstname, 'Lastname': $scope.lastname, 'Email': $scope.email, 'Phone': $scope.phone, 'City': $scope.city });  
                     getLocalStorage.updateEmployees($scope.employees);  
-                    $scope.firstname = '';  
-                    $scope.lastname = '';  
-                    $scope.email = '';  
-					$scope.phone = '';  
-					$scope.city = '';  
+                    $scope.firstname = "Dheeraj";  
+                    $scope.lastname = "Chandra";  
+                    $scope.email = "dheeraj@ensaar.com";  
+					$scope.phone = "9876543210";  
+					$scope.city = "Hyderabad";  
                       
                 };   
                 $scope.deleteEmployee = function (emp) {  
@@ -45,7 +44,6 @@
                 };  
   
             });  
-        }  
     </script>  
   
 </head>  
@@ -55,11 +53,11 @@
        <form name="frm">  
             <table>  
                 <tr>  
-                    <td>First name   :  
+                    <td>First name  :  
   
                     </td>  
                     <td>  
-                        <input type="text" name="firstname" ng-model="Firstname" required><br />  
+                        <input type="text" name="firstname" ng-model="employee.firstname" required><br />  
                     </td>  
                 </tr>  
                 <tr>  
@@ -75,7 +73,7 @@
   
                     </td>  
                     <td>  
-                        <input type="email" name="email" ng-model="email">  
+                        <input type="text" name="email" ng-model="email"> 
                     </td>  
                 </tr>  
 				                <tr>  
@@ -83,7 +81,7 @@
   
                     </td>  
                     <td>  
-                        <input type="number" name="phone" ng-model="phone">  
+                        <input type="text" name="phone" ng-model="phone">  
                     </td>  
                 </tr> 
                 <tr>  
@@ -115,20 +113,12 @@
             </tr>  
 			<div>
             <tr ng-repeat="employee in employees">  
-                <td>{{ employee.firstname }}  
-                </td>  
-                <td>{{ employee.lastname }}  
-                </td>  
-                <td>{{ employee.email }}  
-                </td> 
-				<td>{{ employee.phone }}  
-                </td>
-					<td>{{ employee.city }}  
-                </td>
-                <td>  
-                    <button ng-click="deleteEmployee(employee)">Delete</button>  
-  
-                </td>  
+                <td>{{ employee.firstname }}</td>  
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.email }}</td> 
+				<td>{{ employee.phone }}</td>
+				<td>{{ employee.city }}</td>
+                <td><button ng-click="deleteEmployee(employee)">Delete</button></td>  
             </tr>  
   
         </table>  
