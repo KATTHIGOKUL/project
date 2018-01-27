@@ -1,0 +1,48 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="C:\Users\SANKAR\Desktop\angular\m.js"></script>
+ 
+ 
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["AP","KL","KA","MH","UP","GJ","DL","TN","RJ","WB"];
+});
+</script>
+<body>
+
+<table>
+<tr>
+            <td>Search By :</td>
+            <td>
+                <select ng-model="queryBy">
+                    <option value="$"></option>
+                    <option value="FirstName">FirstNAME</option>
+                    <option value="LastName">LastName</option>
+                    <option value="city">City</option>
+                </select>   
+            </td>
+        </tr>
+
+</table>
+
+<table>
+<div ng-controller="employeecontroller">
+<p>FirstName:  <input type="text" ng-model="firstname"></p>
+<p>LastName:  <input type="text" ng-model="lastname"></p>
+<p>Phone no:  	  <input type="number" ng-model="phone no"></p>
+<p>Email id:     <input type="text" ng-model="email id"></p>
+<p>Enter City:      <input type="text" ng-model="city"></p>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>Select state<select ng-model="selectedName" ng-options="x for x in names">
+</select>
+</p>
+</div>
+
+
+
+</body>
+</html>
