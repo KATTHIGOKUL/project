@@ -1,0 +1,81 @@
+<html>
+<head>
+   
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('MyApp', [])
+        app.controller('MyController', function ($scope, $window) {
+            $scope.Customers = [
+                { fName: "John", lName:"Hammond", City: "Hyderbad", Email:"john@gmail.com", Phone:"9876543210" },
+                { fName: "Mudassar",lName: "Khan", City: "Hyderbad",Email:"khan@gmail.com",Phone:"9874561230" },
+                { fName: "Suzanne", lName:"Mathews", City: "secunderabad",Email:"mathews@gmail.com",Phone:"85236914071"}
+                
+                ];
+ 
+            $scope.Add = function () {
+                
+                var customer = {};
+                customer.fName = $scope.fName;
+				customer.lName = $scope.lName;
+                customer.City = $scope.City;
+				customer.Email = $scope.Email;
+				customer.Phone = $scope.Phone;
+                $scope.Customers.push(customer);
+ 
+                
+                $scope.fName = "";
+				$scope.lName = "";
+                $scope.City = "";
+				$scope.Email = "";
+				$scope.Phone = "";
+            };
+ 
+            $scope.Remove = function (index) {
+                
+                var name = $scope.Customers[index].Name;
+                if ($window.confirm("Do you want to delete: " + name)) {
+                    
+                    $scope.Customers.splice(index, 1);
+                }
+            }
+        });
+    </script>
+    <div ng-app="MyApp" ng-controller="MyController">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>fName</th>
+				<th>lName</th>
+				<th>City</th>
+				<th>Email</th>
+                <th>Phone</th>
+                
+            </tr>
+            <tbody ng-repeat="m in Customers">
+                <tr>
+                    <td>{{m.fName}}</td>
+					<td>{{m.lName}}</td>
+					<td>{{m.City}}</td>
+					<td>{{m.Email}}</td>
+					<td>{{m.Phone}}</td>
+                    
+                    <td><input type="button" ng-click="Remove($index)" value="Remove" /></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><input type="text" ng-model="fName" /></td>
+					<td><input type="text" ng-model="lName" /></td>
+                    <td><input type="text" ng-model="City" /></td>
+					<td><input type="text" ng-model="Email" /></td>
+					<td><input type="text" ng-model="Phone" /></td>
+					
+                    <td><input type="button" ng-click="Add()" value="Add" /></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
+ 
